@@ -3,4 +3,146 @@
    uuid = "7A612FBF-C5E8-47B9-AFED-E4274B96363C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFB0713A-E99F-4911-B9E2-4E9CF9D02EDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimerApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimerApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - e9f7d1cdb6d9c754"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.minuteInput.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - 8e58873dcad8b340"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.minuteInput.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "155">
+               </Location>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - eca6d416f95c64bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.minuteInput.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - dc6369dabd71347a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.minuteInput.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - 107e0217d7cfce7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TimerApp.ViewController"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "843">
+               </Location>
+               <Location
+                  uuid = "845C2D66-78BF-4C15-A0A7-6C0ABF54D7F5 - 8164a512e1b6108d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimerApp.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TimerApp.ViewController&gt;"
+                  moduleName = "TimerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joshkraskin/Desktop/dev/TimerApp/TimerApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "800">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BD20C78-A968-4D78-95AB-A611519DC4CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimerApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "updateTime()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
