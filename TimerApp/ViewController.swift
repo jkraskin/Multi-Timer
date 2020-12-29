@@ -8,65 +8,79 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate {
-    
 
-    @IBOutlet weak var Timer1Stack: NSLayoutConstraint!
+
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+
+
+    @IBOutlet weak var timer1View: UIView!
     
-    @IBOutlet weak var labelInput: UITextField!
+    @IBOutlet weak var Label1Input: UITextField!
     
-    @IBOutlet weak var hourInput: UITextField!
+    @IBOutlet weak var Hour1Input: UITextField!
     
-    @IBOutlet weak var minuteInput: UITextField!
+    @IBOutlet weak var Minute1Input: UITextField!
     
-    @IBOutlet weak var secondInput: UITextField!
+    @IBOutlet weak var Seconds1Input: UITextField!
     
-    //@IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var Timer1Countdown: UILabel!
     
-    @IBOutlet weak var timerCountdown: UILabel!
+    @IBOutlet weak var Start1Button: UIButton!
     
+    @IBOutlet weak var Pause1Button: UIButton!
     
-    
+    @IBOutlet weak var Restart1Button: UIButton!
     
     var timer: Timer = Timer()
+    var h = 0
+    var m = 0
+    var s = 0
     var t: Int = 0
-    //var pausedt: Int = 0
-    var timerCounting: Bool = false
-    var isPaused: Bool = false
-    var startTime = Date()
-    var endTime: TimeInterval = 0.0 
     var pausedEndTime = Date()
-    var dateT = NSDate()
-    var dateTComponents = NSDateComponents()
-    var pausedDateT = NSDate()
-    var pausedDateTComponents = NSDateComponents()
+    var dateT = Date()
+    var dateTComponents = DateComponents()
     var pausedTimeLeft = DateComponents()
-    var timeLeft = DateComponents()
     var pausedEventDate = Date()
+    var animInt: Int = 0
     
-    
+    var buttonColor = UIColor(red: 0.95, green: 0.98, blue: 0.93, alpha: 1.00)
+
+    let Timer1 = TimerClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UNUserNotificationCenter.current().delegate = self
+        self.view.backgroundColor = UIColor(red: 0.11, green: 0.21, blue: 0.34, alpha: 1.00)
+        timer1View.layer.cornerRadius = 10
+        timer1View.layer.shadowColor = UIColor.black.cgColor
+        timer1View.layer.shadowOffset = CGSize(width:2, height: 2)
+        timer1View.layer.shadowRadius = 10
+        timer1View.layer.shadowOpacity = 0.7
+        
+        timer1View.backgroundColor = UIColor(red: 0.27, green: 0.48, blue: 0.62, alpha: 1.00)
+        Start1Button.tintColor = buttonColor
+        Pause1Button.tintColor = buttonColor
+        Restart1Button.tintColor = buttonColor
+        
         
     }
+    
     //Notification set up
-    func notification(dateComponents: DateComponents){
+    func notification(dateComponents: DateComponents, timerID: String){
+        
         
         let center = UNUserNotificationCenter.current()
 
         let content = UNMutableNotificationContent()
-        content.title = "Timer Complete"
-        content.body = "Your timer is Complete!"
+        content.title = "\(timerID) Complete"
+        content.body = "\(timerID) is complete!"
         content.sound = .default
 
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
                 
-        //let uuidString = UUID().uuidString
                 
-        let request = UNNotificationRequest(identifier: "Timer1", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: timerID, content: content, trigger: trigger)
                 
             center.add(request) { (error) in
                 }
@@ -74,248 +88,101 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
     }
         //Reset timer when user responds to notification
-        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            let id = notification.request.identifier
-            print("Received in-app notification identifier= \(id)")
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            completionHandler([.alert, .sound])
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        completionHandler([.sound, .banner, .badge])
         }
         func userNotificationCenter(_ center: UNUserNotificationCenter,
                                     didReceive response: UNNotificationResponse,
                                     withCompletionHandler completionHandler: @escaping () -> Void) {
-            if response.notification.request.identifier == "Timer1" {
-                    resetTimer(self)
-                    print("hello")
-    
+            if response.notification.request.identifier == Timer1.timerID {
+                    resetTimer1(self)
                 }
     
             completionHandler()
     
         }
+    
+    func labelVisibility(inputHidden: Bool){
+        if inputHidden{
+    Hour1Input.isHidden = true
+    Minute1Input.isHidden = true
+    Seconds1Input.isHidden = true
+    Timer1Countdown.isHidden = false
+        }
+        else{
+            Hour1Input.isHidden = false
+            Minute1Input.isHidden = false
+            Seconds1Input.isHidden = false
+            Timer1Countdown.isHidden = true
+        }
+    }
 
-    
-    
-    @IBAction func startTimer(_ sender: Any) {
+    func anim(){
         
-        let h = Int(hourInput.text!)!
-        let m = Int(minuteInput.text!)!
-        let s = Int(secondInput.text!)!
+        UIView.animate(withDuration: 8, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: {self.timer1View.backgroundColor = UIColor(red: 0.90, green: 0.22, blue: 0.27, alpha: 1.0)}, completion: nil)
+    }
+    
+    @IBAction func startTimer1(_ sender: UIButton) {
+    
+    
+        h = Int(Hour1Input.text ?? "") ?? 0
+        m = Int(Minute1Input.text ?? "") ?? 0
+        s = Int(Seconds1Input.text ?? "") ?? 0
         t = ((h*3600) + (m*60) + s)
         
+        Seconds1Input.isHidden = true
         
-        if(timerCounting){
-            timerCounting = false
-            timer.invalidate()
-            //t = pausedt
-            
-        }
+        Timer1.startTimer(t: t, timerID: Label1Input.text ?? "Timer 1")
         
-        else{
-            timerCounting = true
-            timer = Timer.scheduledTimer(timeInterval: (0.5), target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            //timer.tolerance = 0
-            
-        }
-  
+        notification(dateComponents: Timer1.notificationComponents, timerID: Timer1.timerID)
         
-        if isPaused == false {
-        
-            
-        let date = Date().addingTimeInterval(Double(t)) //for notification
-            dateT = Date().addingTimeInterval(Double(t)) as NSDate
-            dateTComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateT as Date) as NSDateComponents
-        
-            print(dateT)
-        
-        
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        
-        notification(dateComponents: dateComponents)
-            
-            
-        }
-       
-        if isPaused == true {
-        
-        pausedEventDate = Calendar.current.date(byAdding: pausedTimeLeft, to: Date())!
-            
-        let date = pausedEventDate
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        //let date2 = Date()
-        //pausedEventDate = Calendar.current.date(byAdding: pausedTimeLeft, to: date2)!
-        
-        notification(dateComponents: dateComponents)
-        }
-        
-        
-    }
+        labelVisibility(inputHidden: true)
     
-    
-    @objc func updateTime() {
-        if isPaused == false {
-        
-                let userCalendar = Calendar.current
-                // Set Current Date
-                let date = Date()
-                let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
-                let currentDate = userCalendar.date(from: components)!
-                print(currentDate)
-        
-                // Convert eventDateComponents to the user's calendar
-                let eventDate = userCalendar.date(from: dateTComponents as DateComponents)!
-                
-                
-                // Change the seconds to days, hours, minutes and seconds
-            timeLeft = userCalendar.dateComponents([.hour, .minute, .second, .month, .day], from: currentDate, to: eventDate)
-                print(timeLeft)
-            
-                // Display Countdown
-               
-            let hours = Int(timeLeft.hour!)
-            let minutes = Int(timeLeft.minute!)
-            let seconds = Int(timeLeft.second!)
-            
-            timerCountdown.text = String(format:"%02d:%02d:%02d", hours, minutes, seconds)
-            
-            if currentDate >= eventDate {
-                resetTimer(self)
-            }
-            
-            //timerCountdown.text = "\(timeLeft.hour!)h \(timeLeft.minute!)m \(timeLeft.second!)s"
-                
-                // Show diffrent text when the event has passed
-                //endEvent(currentdate: currentDate, eventdate: eventDate)
-    }
-        if isPaused == true {
-            print("Running isPaused")
-            let userCalendar = Calendar.current
-                    // Set Current Date
-                    let date = Date()
-                    let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
-                    let currentDate = userCalendar.date(from: components)!
-                    print(currentDate)
-            
-                    // Convert eventDateComponents to the user's calendar
-                    //using pausedEventDate set in starTimer function
 
-            
-                    
-                    // Change the seconds to days, hours, minutes and seconds
-            timeLeft = userCalendar.dateComponents([.hour, .minute, .second], from: currentDate, to: pausedEventDate)
-                    print(timeLeft)
-                    
-                    // Display Countdown
-                let hours = Int(timeLeft.hour!)
-                let minutes = Int(timeLeft.minute!)
-                let seconds = Int(timeLeft.second!)
-                
-                timerCountdown.text = String(format:"%02d:%02d:%02d", hours, minutes, seconds)
+    
+        
+        timer = Timer.scheduledTimer(timeInterval: (0.5), target: self, selector: #selector(updateTimer1Countdown), userInfo: nil, repeats: true)
 
-                    
-            if currentDate >= pausedEventDate {
-                resetTimer(self)
-            }
-            
         }
+    
+        @objc func updateTimer1Countdown() {
+        Timer1Countdown.text = Timer1.updateTime()
+            animInt = Timer1.myint
+            if animInt <= 10{
+                anim()
+            }
+            if animInt < 0{
+                timer1View.backgroundColor = UIColor(red: 0.27, green: 0.48, blue: 0.62, alpha: 1.00)
+            }
+        }
+
+    
+    @IBAction func pauseTimer1(_ sender: Any) {
+    
+         timer.invalidate()
+         Timer1.pauseTimer()
+        
+        
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [Timer1.timerID])
+        
     }
     
+    @IBAction func resetTimer1(_ sender: Any) {
     
-    
-////        if isPaused == false {
-////            if t > -1 {
-////
-////            let time = convertSeconds(seconds: t)
-////            let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-////            timerCountdown.text = timeString
-////
-////            t = t-1
-////
-////                if t == 0 {
-////                //notification()
-////                timerCounting = false
-////                resetTimer(self)
-////                }
-////
-////            }
-////
-////            else {
-////                timer.invalidate()
-////            }
-////        }
-//
-////        if isPaused == true {
-////            if pausedt > -1 {
-////
-////            let time = convertSeconds(seconds: pausedt)
-////            let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-////            timerCountdown.text = timeString
-////
-////            pausedt = pausedt-1
-////
-////                if pausedt == 0 {
-////                //notification()
-////                timerCounting = false
-////                resetTimer(self)
-////                }
-////            }
-////
-////
-////        else {
-////            timer.invalidate()
-////        }
-////        }
-//    }
-       
-    
-    ///print(makeTimeString(hours: time.0, minutes: time.1, seconds: time.2))
-    
-    
-//    func convertSeconds(seconds: Int) -> (Int, Int, Int)
-//    {
-//        return ((seconds / 3600), ((seconds % 3600) / 60),((seconds % 3600) % 60))
-//    }
-//
-//    func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String
-//    {
-//        var timeString = ""
-//        timeString += String(format: "%02d", hours)
-//        timeString += ":"
-//        timeString += String(format: "%02d", minutes)
-//        timeString += ":"
-//        timeString += String(format: "%02d", seconds)
-//        return timeString
-//    }
-    
-    
-    @IBAction func pauseTimer(_ sender: Any) {
+        Timer1.resetTimer()
+        Label1Input.text = Timer1.timerID
         timer.invalidate()
-        timerCounting = false
-        isPaused = true
-        //pausedt = t
-        
-        pausedTimeLeft = timeLeft
-        //pausedDateT = Date() as NSDate
-        //pausedDateTComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: pausedDateT as Date) as NSDateComponents
-        //print(pausedDateT)
-        print(pausedTimeLeft)
-        
-        
+        labelVisibility(inputHidden: false)
+
+        Hour1Input.text = "00"
+        Minute1Input.text = "00"
+        Seconds1Input.text = "00"
+        Timer1Countdown.text = "00:00:00"
+        timer1View.backgroundColor = UIColor(red: 0.27, green: 0.48, blue: 0.62, alpha: 1.00)
         let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["Timer1"])
-        //print(pausedt)
-        
-    }
-    @IBAction func resetTimer(_ sender: Any) {
-        self.t = 0
-        //self.pausedt = 0
-        self.isPaused = false
-        self.timer.invalidate()
-        self.hourInput.text = "00"
-        self.minuteInput.text = "00"
-        self.secondInput.text = "00"
-        self.timerCountdown.text = "00:00:00"
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["Timer1"])
+        center.removePendingNotificationRequests(withIdentifiers: [Timer1.timerID])
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3929C2259646E20026F28D /* TimerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3929C1259646E20026F28D /* TimerClass.swift */; };
 		2E68D537258DF6E100AE86DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D536258DF6E100AE86DA /* AppDelegate.swift */; };
 		2E68D539258DF6E100AE86DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D538258DF6E100AE86DA /* SceneDelegate.swift */; };
 		2E68D53B258DF6E100AE86DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D53A258DF6E100AE86DA /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E3929C1259646E20026F28D /* TimerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerClass.swift; sourceTree = "<group>"; };
 		2E68D533258DF6E100AE86DA /* TimerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E68D536258DF6E100AE86DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E68D538258DF6E100AE86DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				2E68D536258DF6E100AE86DA /* AppDelegate.swift */,
 				2E68D538258DF6E100AE86DA /* SceneDelegate.swift */,
 				2E68D53A258DF6E100AE86DA /* ViewController.swift */,
+				2E3929C1259646E20026F28D /* TimerClass.swift */,
 				2E68D53C258DF6E100AE86DA /* Main.storyboard */,
 				2E68D542258DF6E100AE86DA /* Assets.xcassets */,
 				2E68D544258DF6E100AE86DA /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 				2E68D53B258DF6E100AE86DA /* ViewController.swift in Sources */,
 				2E68D537258DF6E100AE86DA /* AppDelegate.swift in Sources */,
 				2E68D539258DF6E100AE86DA /* SceneDelegate.swift in Sources */,
+				2E3929C2259646E20026F28D /* TimerClass.swift in Sources */,
 				2E68D541258DF6E100AE86DA /* TimerApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
