@@ -30,8 +30,8 @@ class TimerClass {
     
     
     
-    init(){
-    }
+//    init(){
+//    }
     
     func pauseTimer(){
             timer.invalidate()
@@ -42,7 +42,7 @@ class TimerClass {
     
     func resetTimer(){
         t = 0
-        self.timerID = "Timer 1"
+        //self.timerID = "Timer 1"
         isPaused = false
         timerCounting = false
         timer.invalidate()
