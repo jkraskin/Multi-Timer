@@ -15,6 +15,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light 
         self.dismissKeyboard()
         UNUserNotificationCenter.current().delegate = self
         self.view.backgroundColor = UIColor(red: 0.11, green: 0.21, blue: 0.34, alpha: 1.00)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -26,7 +26,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="174"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Timer 1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V5g-Sh-Xdy">
-                                                        <rect key="frame" x="8" y="8" width="328" height="43.5"/>
+                                                        <rect key="frame" x="8" y="8" width="328" height="43.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
@@ -83,6 +83,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" hidden="YES"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -128,7 +129,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="174"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Timer 2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Mo-Wf-qcj">
-                                                        <rect key="frame" x="8" y="8" width="328" height="43.5"/>
+                                                        <rect key="frame" x="8" y="8" width="328" height="43.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
@@ -230,7 +231,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="174"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Timer 3" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCl-vj-bGh">
-                                                        <rect key="frame" x="8" y="8" width="328" height="43.5"/>
+                                                        <rect key="frame" x="8" y="8" width="328" height="43.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
@@ -339,7 +340,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="174"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Timer 4" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L1H-nE-zug">
-                                                        <rect key="frame" x="8" y="8" width="328" height="43.5"/>
+                                                        <rect key="frame" x="8" y="8" width="328" height="43.666666666666664"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="43.5" id="82b-2j-z5f"/>
                                                         </constraints>
@@ -362,7 +363,7 @@
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-MO-udt" userLabel="Start1">
-                                                        <rect key="frame" x="116" y="135" width="25" height="22.5"/>
+                                                        <rect key="frame" x="116" y="135" width="25" height="22.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="QIu-AN-cbD"/>
                                                         </constraints>
@@ -372,7 +373,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-zX-6uQ" userLabel="Pause1">
-                                                        <rect key="frame" x="160" y="135" width="25" height="22.5"/>
+                                                        <rect key="frame" x="160" y="135" width="25" height="22.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="oHW-bM-Dlj"/>
                                                         </constraints>
@@ -382,7 +383,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcn-fp-B2e" userLabel="Reset1">
-                                                        <rect key="frame" x="204" y="135" width="25" height="22.5"/>
+                                                        <rect key="frame" x="204" y="135" width="25" height="22.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="3lJ-4e-d7B"/>
                                                         </constraints>
@@ -394,7 +395,7 @@
                                                         </connections>
                                                     </button>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-tF-smB" userLabel="Timer1 Countdown">
-                                                        <rect key="frame" x="81" y="62.5" width="183" height="55.5"/>
+                                                        <rect key="frame" x="81" y="62.666666666666629" width="183" height="55"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -449,6 +450,7 @@
                         <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bvR-a2-bPQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="aN2-bb-5rM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bvR-a2-bPQ" secondAttribute="trailing" constant="35" id="ai9-ke-C03"/>
                             <constraint firstItem="bvR-a2-bPQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cPg-Mr-kd7"/>
                             <constraint firstItem="bvR-a2-bPQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oAi-3d-mdg"/>
                         </constraints>
