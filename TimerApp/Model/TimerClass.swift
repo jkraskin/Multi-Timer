@@ -6,16 +6,17 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 
 class TimerClass {
     
     
     var timer: Timer = Timer()
-    var audioPlayer: AVAudioPlayer = AVAudioPlayer()
+//    var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     
     var timerName: String
     var id: String
+    var defaultName: String
     
     var inputH = 0
     var inputM = 0
@@ -35,16 +36,17 @@ class TimerClass {
     var isRunning: Bool = false
     
     var notificationComponents = DateComponents()
-    var pausedEndTime = Date()
+//    var pausedEndTime = Date()
     var dateT = Date()
     var dateTComponents = DateComponents()
-    var pausedDateComponents = DateComponents()
-    var pausedTimeLeft = DateComponents()
+//    var pausedDateComponents = DateComponents()
+//    var pausedTimeLeft = DateComponents()
     var timeLeft = DateComponents()
 //    var pausedEventDate = Date()
     
     var timerID = ""
     var notificationID = ""
+    
     
     var timeLeftInt: Int = 0
     var timeLeftString = "00:00:00"
@@ -59,24 +61,25 @@ class TimerClass {
     init(timerName: String, id: String){
         self.timerName = timerName
         self.id = id
+        self.defaultName = timerName
     }
     
-    func playSound() {
-        print("playSound")
-        if let soundURL = Bundle.main.url(forResource: "digitalbells", withExtension: "wav") {
-        
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            }
-            catch {
-                print(error)
-            }
-            
-            audioPlayer.play()
-        } else{
-            print("Unable to locate audio file")
-        }
-    }
+//    func playSound() {
+//        print("playSound")
+//        if let soundURL = Bundle.main.url(forResource: "digitalbells", withExtension: "wav") {
+//
+//            do {
+//                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+//            }
+//            catch {
+//                print(error)
+//            }
+//
+//            audioPlayer.play()
+//        } else{
+//            print("Unable to locate audio file")
+//        }
+//    }
     
     
     func pauseTimer(){
@@ -88,17 +91,18 @@ class TimerClass {
 //        timer.invalidate()
 //        isRunning = false
         isPaused = true
-        pausedTimeLeft = timeLeft
+//        pausedTimeLeft = timeLeft
     }
     
     func resetTimer(){
         
-        print("\(self.timerName) ")
-        audioPlayer.stop()
+//        print("\(self.timerName) ")
+//        audioPlayer.stop()
         self.t = 0
         inputT = 0
         isPaused = false
         isRunning = false
+        timerName = defaultName
         timer.invalidate()
         timeLeftString = "00:00:00"
         //print("Time Reset")
@@ -107,7 +111,7 @@ class TimerClass {
     }
     
     func timeExpired(){
-        print("Timer Class TIME EXPIRED")
+//        print("Timer Class TIME EXPIRED")
         if isRunning == true{
             //print("Time Expired")
         

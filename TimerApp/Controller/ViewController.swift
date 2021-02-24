@@ -10,7 +10,7 @@ import UserNotifications
 
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,  UNUserNotificationCenterDelegate, TimerCellProtocol {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,  UNUserNotificationCenterDelegate {
     
     func startTimer(index: Int, t: Int, labelName: String) {
         return
@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     var timers: [TimerClass] = []
-    var timerCells: [TimerCell] = []
+//    var timerCells: [TimerCell] = []
     var timerNameArray: [Int] = []
     var maxLimit = 10
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
 
         table.scrollIndicatorInsets = table.contentInset
-        table.scrollToNearestSelectedRow(at: .bottom, animated: true)
+        table.scrollToNearestSelectedRow(at: .none, animated: true)
         
 
     }
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.cellIndex = String(indexPath.row)
         cell.indexP = indexPath.row
         cell.timers = timers
-        cell.delegate = self
+//        cell.delegate = self
         
         cell.configure(CellIndex: String(indexPath.row))
         cell.setTimerCell(timer: timers[indexPath.row])
@@ -106,6 +106,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(timers[indexPath.row].timerName)
         print(timers[indexPath.row].id)
     }
         
@@ -113,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         @IBAction func addNewTimer(_ sender: Any) {
         if timers.count < maxLimit {
             timers.append(TimerClass(timerName: "Timer \(timers.count + 1)", id: UUID().uuidString))
-            timerCells.append(TimerCell())
+//            timerCells.append(TimerCell())
             timerNameArray.append(1)
             table.beginUpdates()
             table.insertRows(at: [IndexPath(row: timers.count-1, section: 0)], with: .automatic)
@@ -127,10 +128,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func startAll(action: UIAlertAction) {
         for timer in timers {
+            if timer.isRunning == false && timer.isPaused == false {
             if timer.inputT > 0 {
             timer.startTimer(t: timer.inputT, labelName: timer.timerName)
             notification(dateComponents: timer.notificationComponents, timerID: timer.timerID, notificationID: timer.id)
             }
+        }
+          else  if timer.isRunning == true && timer.isPaused == true {
+            if timer.inputT > 0 {
+            timer.startTimer(t: timer.inputT, labelName: timer.timerName)
+            notification(dateComponents: timer.notificationComponents, timerID: timer.timerID, notificationID: timer.id)
+            }
+        }
         }
 
         table.reloadData()
@@ -176,7 +185,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func allTimerButton(_ sender: Any) {
         print("allTimer")
         
-        let ac = UIAlertController(title: "Choose an option", message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Choose an option to apply to all timers", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Start All", style: .default, handler:startAll))
         ac.addAction(UIAlertAction(title: "Pause All", style: .default, handler:pauseAll))
         ac.addAction(UIAlertAction(title: "Reset All", style: .default, handler:resetAll))
@@ -254,30 +263,30 @@ extension UIViewController {
     }
 }
 
-extension ViewController {
-
-    
-        
-        
-    func resetTimer(index: Int) {
-        print("Reset data passed for cell \(index)")
-    }
-    
-    func pauseTimer(index: Int) {
-        print("Pause data passed for cell \(index)")
-    }
-    
-    func showAlert(index: Int) {
-        print("Alert data passed")
+//extension ViewController {
+//
+//
+//
+//
+//    func resetTimer(index: Int) {
+//        print("Reset data passed for cell \(index)")
+//    }
+//
+//    func pauseTimer(index: Int) {
+//        print("Pause data passed for cell \(index)")
+//    }
+//
+//    func showAlert(index: Int) {
+//        print("Alert data passed")
 //        let alert = UIAlertController(title: "\(timers[index].timerName) Complete", message: "\(timers[index].timerName) is complete!", preferredStyle: .alert)
 //        
 //        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel)) //, handler: { action in self.timers[index].resetTimer() }))
         
 //        present(alert, animated: true)
-    }
+//    }
     
-    
-}
+//    
+//}
 
 extension ViewController {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

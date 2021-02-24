@@ -7,15 +7,15 @@
 
 import UIKit
 import UserNotifications
-import AVFoundation
+//import AVFoundation
 
-protocol TimerCellProtocol: AnyObject {
-    func startTimer(index: Int, t: Int, labelName: String)
-    func pauseTimer(index: Int)
-    func resetTimer(index: Int)
-    func showAlert(index: Int)
-    //    func showActionSheet(index: Int, t: Int, name: String)
-}
+//protocol TimerCellProtocol: AnyObject {
+//    func startTimer(index: Int, t: Int, labelName: String)
+//    func pauseTimer(index: Int)
+//    func resetTimer(index: Int)
+//    func showAlert(index: Int)
+//    //    func showActionSheet(index: Int, t: Int, name: String)
+//}
 
 
 class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -25,9 +25,9 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         print("delegate All Timers successful")
     }
     
-    weak var delegate: TimerCellProtocol?
+//    weak var delegate: TimerCellProtocol?
     
-    var audioPlayer: AVAudioPlayer!
+//    var audioPlayer: AVAudioPlayer!
     
     
     var timer: Timer = Timer()
@@ -54,8 +54,13 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
     var hoursArray = Array(0...23)
     var pickerTotal = 0
     
-    let playSymbol = UIImage(systemName: "play.circle.fill")
-    let pauseSymbol = UIImage(systemName: "pause.circle.fill")
+//    let playSymbol = UIImage(systemName: "play.circle.fill")
+//    let pauseSymbol = UIImage(systemName: "pause.circle.fill")
+    
+    
+    
+
+    
     
     //picker code
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -118,18 +123,22 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         else {
             startPauseButton.isEnabled = true
             
-//            let pulse = CASpringAnimation(keyPath: "transform.scale")
-//             pulse.duration = 30
-//             pulse.fromValue = 1
-//             pulse.toValue = 1.2
-//            pulse.timingFunction = CAMediaTimingFunction(name:.easeInEaseOut)
-//             pulse.autoreverses = true
-//             pulse.repeatCount = .infinity
-//             pulse.initialVelocity = 0.5
-//             pulse.damping = 0.5
-//             startPauseButton.layer.add(pulse, forKey: nil)
-            
         }
+            
+        
+            
+//            let animation = CABasicAnimation(keyPath: "transform.scale")
+//            animation.toValue = 1.3
+//            animation.duration = 0.8
+//            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//            animation.autoreverses = true
+//            animation.repeatCount = Float.infinity
+//            startPauseButton.layer.add(animation, forKey: nil)
+
+            
+
+            
+        
         }
     }
     
@@ -214,13 +223,15 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         resetButton.isEnabled = false
         
         
-        startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-        startPauseButton.tintColor = UIColor.systemGreen
+        startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+//        startPauseButton.tintColor = UIColor.systemGreen
         pickerReset()
         h = 0
         m = 0
         s = 0
         pickerTotal = 0
+        
+        timerLabel.text! = ""
         
         if pickerTotal == 0 {
             startPauseButton.isEnabled = false
@@ -237,8 +248,8 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
 //        cellIsRunning = false
         //        pauseButton.isEnabled = false
         
-        startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-        startPauseButton.tintColor = UIColor.systemGreen
+        startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+//        startPauseButton.tintColor = UIColor.systemGreen
         
         startPauseButton.isEnabled = true
         timers[indexP].resetTimer()
@@ -251,11 +262,30 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
         defaultState()
         
-        
     }
     
+
+    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+        print(sender.text!)
+        
+        //Need to add: reset timerName to default when reset
+        
+        if sender.text! == "" {
+            timerName = timers[indexP].timerName
+        }
+        else  if sender.text! != "" {
+            timerName = sender.text!
+            timers[indexP].timerName = timerName
+            timers[indexP].timerID = timerName
+            
+        }
+    }
     
     @IBAction func startButton(_ sender: Any) {
+        
+        
+        print(timerLabel.text!)
+//        startPauseButton.layer.removeAllAnimations()
         
         if timers[indexP].isRunning == false && timers[indexP].isPaused == false {
             
@@ -263,8 +293,8 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             
             
             
-            startPauseButton.setImage(UIImage(named: "pausebutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemRed
+            startPauseButton.setImage(UIImage(named: "pausebutton2"), for: .normal)
+//            startPauseButton.tintColor = UIColor.systemRed
             
             resetButton.isEnabled = false
             secondsPicker.isHidden = true
@@ -273,11 +303,22 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             //        pauseButton.isEnabled = true
             //            cellIsRunning = true
             
+            
             t = ((h*3600) + (m*60) + s)
             
-            timerName = timerLabel.text!
+            if timerLabel.text != "" {
+                timerName = timerLabel.text!
+            }
+            else {
+                timerName = timers[indexP].timerName
+                timerLabel.text = timerName
+                
+            }
             
-            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
+
+//            timerName = timerLabel.text!
+
+//            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
             
             timers[indexP].startTimer(t: t, labelName: timerName)
             
@@ -292,8 +333,8 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         else if timers[indexP].isRunning == true && timers[indexP].isPaused == true {
             
             
-            startPauseButton.setImage(UIImage(named: "pausebutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemRed
+            startPauseButton.setImage(UIImage(named: "pausebutton2"), for: .normal)
+//            startPauseButton.tintColor = UIColor.systemRed
             
             resetButton.isEnabled = false
             secondsPicker.isHidden = true
@@ -304,7 +345,7 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             
             timerName = timerLabel.text!
             
-            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
+//            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
             
             timers[indexP].startTimer(t: t, labelName: timerName)
             
@@ -317,10 +358,10 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
         else if timers[indexP].isRunning == true && timers[indexP].isPaused == false {
             print("is RUNNING TRUE and is PAUSED FALSE")
-            startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemGreen
+            startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+    //        startPauseButton.tintColor = UIColor.systemGreen
             
-            delegate?.pauseTimer(index: indexP)
+//            delegate?.pauseTimer(index: indexP)
             
             resetButton.isEnabled = true
             secondsPicker.isHidden = true
@@ -338,8 +379,8 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
         else if timers[indexP].isRunning == false && timers[indexP].isPaused == true {
             
-            startPauseButton.setImage(UIImage(named: "pausebutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemRed
+            startPauseButton.setImage(UIImage(named: "pausebutton2"), for: .normal)
+//            startPauseButton.tintColor = UIColor.systemRed
             
             resetButton.isEnabled = false
             secondsPicker.isHidden = true
@@ -350,7 +391,7 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             
             timerName = timerLabel.text!
             
-            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
+//            delegate?.startTimer(index: indexP, t: t, labelName: timerName)
             timers[indexP].startTimer(t: t, labelName: timerName)
             
             
@@ -373,14 +414,14 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             if timers[indexP].timeLeftInt == 0{
                 
                 //            timers[indexP].playSound()
-                startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-                startPauseButton.tintColor = UIColor.systemGreen
+                startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+        //        startPauseButton.tintColor = UIColor.systemGreen
                 defaultState()
                 timers[indexP].resetTimer()
                 
                 
                 timer.invalidate()
-                delegate?.showAlert(index: indexP)
+//                delegate?.showAlert(index: indexP)
             }
         }
     }
@@ -410,22 +451,24 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
         print("set Timer Cell")
         for timer in timers{
-            print("\(timer.timerName) is Running:\(timer.isRunning) is Paused: \(timer.isPaused) inputT \(timer.inputT)")
+            print("\(timer.timerName) is Running:\(timer.isRunning) is Paused: \(timer.isPaused) inputT \(timer.inputT), t \(timer.t)")
         }
         
         
         
-        timerLabel.text = timer.timerID
+//        timerLabel.text = timer.timerID
         
         
         if timer.isRunning == false && timer.isPaused == false {
             //            countdownLabel.text = timer.updateTime()
             countdownLabel.isHidden = true
             secondsPicker.isHidden = false
-            startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemGreen
+            startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+    //        startPauseButton.tintColor = UIColor.systemGreen
             
-            timerLabel.text = timer.timerName
+//            timerLabel.text = timer.timerName
+            timerLabel.attributedPlaceholder = NSAttributedString(string: "Enter Timer Name...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+//            timerLabel.placeholder = "Enter Timer Name..."
             
             if timer.inputT == 0{
             defaultState()
@@ -438,16 +481,21 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
                 secondsPicker.selectRow(mrow, inComponent: 1, animated: false)
                 secondsPicker.selectRow(srow, inComponent: 2, animated: false)
                 
+                startPauseButton.isEnabled = true
+                h = timer.inputH
+                m = timer.inputM
+                s = timer.inputS
                 
             }
         }
         
         else if timer.isRunning == false && timer.isPaused == true {
             
+            resetButton.isEnabled = true
             countdownLabel.isHidden = false
             secondsPicker.isHidden = true
-            startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemGreen
+            startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+    //        startPauseButton.tintColor = UIColor.systemGreen
             
             startPauseButton.isEnabled = true
             
@@ -456,10 +504,11 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
         else if timer.isRunning == true && timer.isPaused == false {
             invokeTimer()
+            resetButton.isEnabled = false
             countdownLabel.isHidden = false
             secondsPicker.isHidden = true
-            startPauseButton.setImage(UIImage(named: "pausebutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemRed
+            startPauseButton.setImage(UIImage(named: "pausebutton2"), for: .normal)
+//            startPauseButton.tintColor = UIColor.systemRed
             startPauseButton.isEnabled = true
             
             timerLabel.text = timer.timerName
@@ -470,11 +519,11 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
             countdownLabel.text = timer.timeLeftString
             timer.pauseTimer()
             timer.timer.invalidate()
-            
+            resetButton.isEnabled = true
             countdownLabel.isHidden = false
             secondsPicker.isHidden = true
-            startPauseButton.setImage(UIImage(named: "playbutton"), for: .normal)
-            startPauseButton.tintColor = UIColor.systemGreen
+            startPauseButton.setImage(UIImage(named: "playbutton2"), for: .normal)
+    //        startPauseButton.tintColor = UIColor.systemGreen
             startPauseButton.isEnabled = true
             
             timerLabel.text = timer.timerName
@@ -484,6 +533,9 @@ class TimerCell: UITableViewCell, UNUserNotificationCenterDelegate, UIPickerView
         
     }
     
+    override func prepareForReuse() {
+        timerLabel.text = ""
+    }
     
 }
 
