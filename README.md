@@ -26,6 +26,12 @@ This project was my first experience with developing a complete application end-
 * Local notifications
 * Major Code/architecture refactoring
 
+## Next Steps/Improvements
+
+* General clean up of code
+* Improve documentation 
+* Consider refactoring to MVVM
+
 ## Release History
 
 * 2.0
