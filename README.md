@@ -9,7 +9,6 @@ An iOS app that allows you to run multiple timers at once! [Check it out on the 
 Unlike similar apps, Multi-Timer's streamlined user interface contains no bloatware or in-app purchases - get your timers up and running with minimal clicks. 
 Ideal for cooking, workouts, studying, games, and more!
 
-![Image](Apple iPhone 11 Pro Max Screenshot 0.png)
 
 ---
 ## Author
