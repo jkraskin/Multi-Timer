@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E3929C2259646E20026F28D /* OLD_TimerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3929C1259646E20026F28D /* OLD_TimerClass.swift */; };
 		2E4AA51725A61D5F008655CE /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4AA51625A61D5F008655CE /* TimerCell.swift */; };
-		2E5DCA3525A60CCE00FCA49E /* OLD_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5DCA3425A60CCE00FCA49E /* OLD_ViewController.swift */; };
 		2E68D537258DF6E100AE86DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D536258DF6E100AE86DA /* AppDelegate.swift */; };
 		2E68D539258DF6E100AE86DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D538258DF6E100AE86DA /* SceneDelegate.swift */; };
 		2E68D53B258DF6E100AE86DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68D53A258DF6E100AE86DA /* ViewController.swift */; };
@@ -19,15 +17,12 @@
 		2E68D546258DF6E100AE86DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E68D544258DF6E100AE86DA /* LaunchScreen.storyboard */; };
 		2E8CC1E925CA19D300789E17 /* birds.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CC1E725CA19D300789E17 /* birds.wav */; };
 		2E8CC1EA25CA19D300789E17 /* digitalbells.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CC1E825CA19D300789E17 /* digitalbells.wav */; };
-		2EEF953A25AFC0D600387DC3 /* OLD_TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF953925AFC0D600387DC3 /* OLD_TimerCell.swift */; };
 		2EEF953F25B01BB400387DC3 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF953E25B01BB400387DC3 /* LocalNotificationManager.swift */; };
 		2EF8344525AE9CBD003A6389 /* TimerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8344425AE9CBD003A6389 /* TimerClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E3929C1259646E20026F28D /* OLD_TimerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLD_TimerClass.swift; sourceTree = "<group>"; };
 		2E4AA51625A61D5F008655CE /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
-		2E5DCA3425A60CCE00FCA49E /* OLD_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLD_ViewController.swift; sourceTree = "<group>"; };
 		2E68D533258DF6E100AE86DA /* TimerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E68D536258DF6E100AE86DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E68D538258DF6E100AE86DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +34,6 @@
 		2E68D547258DF6E100AE86DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E8CC1E725CA19D300789E17 /* birds.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = birds.wav; path = ../../../../../Downloads/birds.wav; sourceTree = "<group>"; };
 		2E8CC1E825CA19D300789E17 /* digitalbells.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = digitalbells.wav; path = ../../../../../Downloads/digitalbells.wav; sourceTree = "<group>"; };
-		2EEF953925AFC0D600387DC3 /* OLD_TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLD_TimerCell.swift; sourceTree = "<group>"; };
 		2EEF953E25B01BB400387DC3 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		2EF8344425AE9CBD003A6389 /* TimerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,16 +49,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E5DCA3725A6132000FCA49E /* OLD */ = {
-			isa = PBXGroup;
-			children = (
-				2EEF953925AFC0D600387DC3 /* OLD_TimerCell.swift */,
-				2E3929C1259646E20026F28D /* OLD_TimerClass.swift */,
-				2E5DCA3425A60CCE00FCA49E /* OLD_ViewController.swift */,
-			);
-			path = OLD;
-			sourceTree = "<group>";
-		};
 		2E68D52A258DF6E100AE86DA = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +80,6 @@
 				2E68D544258DF6E100AE86DA /* LaunchScreen.storyboard */,
 				2E68D547258DF6E100AE86DA /* Info.plist */,
 				2E68D53F258DF6E100AE86DA /* TimerApp.xcdatamodeld */,
-				2E5DCA3725A6132000FCA49E /* OLD */,
 			);
 			path = TimerApp;
 			sourceTree = "<group>";
@@ -210,11 +193,8 @@
 				2E68D53B258DF6E100AE86DA /* ViewController.swift in Sources */,
 				2EEF953F25B01BB400387DC3 /* LocalNotificationManager.swift in Sources */,
 				2EF8344525AE9CBD003A6389 /* TimerClass.swift in Sources */,
-				2EEF953A25AFC0D600387DC3 /* OLD_TimerCell.swift in Sources */,
 				2E68D537258DF6E100AE86DA /* AppDelegate.swift in Sources */,
-				2E5DCA3525A60CCE00FCA49E /* OLD_ViewController.swift in Sources */,
 				2E68D539258DF6E100AE86DA /* SceneDelegate.swift in Sources */,
-				2E3929C2259646E20026F28D /* OLD_TimerClass.swift in Sources */,
 				2E68D541258DF6E100AE86DA /* TimerApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
