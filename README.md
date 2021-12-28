@@ -29,8 +29,10 @@ This project was my first experience with developing a complete application end-
 ## Next Steps/Improvements
 
 * General clean up of code
-* Improve documentation 
+* Improve documentation/comments
+* Further modularize code through implementing reusable functions
 * Consider refactoring to MVVM
+* Implement single system timer to keep track of all Timers, instead of multiple system timers
 
 ## Release History
 
