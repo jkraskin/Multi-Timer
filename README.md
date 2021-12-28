@@ -1,10 +1,10 @@
 # Multi-Timer: Countdown Timers
 An iOS app that allows you to run multiple timers at once! [Check it out on the iOS App Store!](https://apps.apple.com/us/app/multi-timer-countdown-timers/id1547154274#?platform=iphone)
 
-*Straight forward, user-friendly UI
-*Add and run up to eight timers with no extra screens, and with minimal clicks
-*Customizable labels to easily keep track of each timer
-*Sends notifications when each timer is complete, even when the app is minimized
+* Straight forward, user-friendly UI
+* Add and run up to eight timers with no extra screens, and with minimal clicks
+* Customizable labels to easily keep track of each timer
+* Sends notifications when each timer is complete, even when the app is minimized
 
 Unlike similar apps, Multi-Timer's streamlined user interface contains no bloatware or in-app purchases - get your timers up and running with minimal clicks. 
 Ideal for cooking, workouts, studying, games, and more!
