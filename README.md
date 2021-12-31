@@ -26,12 +26,12 @@ This project was my first experience with developing a complete application end-
 * Local notifications
 * Major Code/architecture refactoring
 
-## Next Steps/Improvements
+## Next Steps/Code Improvements
 
 * General clean up of code
-* Improve documentation/comments
+* Improve documentation and comments
 * Further modularize code through implementing reusable functions
-* Consider refactoring to MVVM
+* Consider refactoring to full MVVM
 * Implement single system timer to keep track of all Timers, instead of multiple system timers
 
 ## Release History
